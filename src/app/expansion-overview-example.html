@@ -1,0 +1,58 @@
+<div *ngFor="let Spielstand of Spielstaende">
+  {{Spielstand.name}}:
+  <div *ngFor="let runde of Spielstand.Runde; let i=index;">
+  Runde {{i+1}}: <b>{{runde}}</b>|||
+</div>
+
+<mat-accordion>
+
+  <div *ngFor="let Spielstand of Spielstaende">
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{Spielstand.name}}
+      </mat-panel-title>
+      <mat-panel-description>
+        Spieler
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    
+    <table>
+      <tr>
+        <td>
+    <mat-form-field>
+      <mat-label>Angesagt</mat-label>
+      <input matInput [(ngModel)]="Spielstand.angesagt" type="number" min="0" max = "10">
+    </mat-form-field>
+        </td>
+<td>
+    <mat-form-field>
+      <mat-label>Gemacht</mat-label>
+      <input matInput [(ngModel)]="Spielstand.gemacht" type="number" min="0" max = "10">
+    </mat-form-field>
+</td>
+<td valign="top">
+      <button mat-raised-button color="warn" style="position:relativ;top:10px" (click)="Spielstand.rundenmachen()">Hinzufügen</button>
+       
+      
+      </td>
+      </tr>
+    </table>
+
+    
+   
+    
+  </mat-expansion-panel>
+  </div>
+
+</mat-accordion>
+
+<input [(ngModel)]="name"> <button (click)="add()">add</button>
+
+
+
+<!-- Copyright 2019 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
