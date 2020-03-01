@@ -1,8 +1,8 @@
 <div *ngFor="let Spielstand of Spielstaende">
   {{Spielstand.name}}:
-  <div *ngFor="let runde of Spielstand.Runde; let i=index;">
+ <ng-container  *ngFor="let runde of Spielstand.Runde; let i=index;">
   Runde {{i+1}}: <b>{{runde}}</b>|||
-</div>
+</ng-container>
 
 <mat-accordion>
 
